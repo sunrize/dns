@@ -128,6 +128,11 @@ func generateUnboundConf(settings Settings, blacklistLines []string,
 	forwardZoneLines = ensureIndentLines(forwardZoneLines)
 
 	lines = append(lines, forwardZoneLines...)
+
+	includeToplevelConfLine := `include: "` + filepath.Join(unboundDir, includeToplevelConfFilename) + `"`
+
+	lines = append(lines, includeToplevelConfLine)
+
 	return lines
 }
 

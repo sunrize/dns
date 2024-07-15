@@ -16,6 +16,10 @@ func (c *configurator) SetupFiles(ctx context.Context) error {
 		return err
 	}
 
+	if err := c.createEmptyIncludeToplevelConf(); err != nil {
+		return err
+	}
+
 	return c.createEmptyIncludeConf()
 }
 
